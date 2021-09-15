@@ -6,7 +6,7 @@ defmodule Pluggy.Router do
   alias Pluggy.FruitController
   alias Pluggy.UserController
   alias Pluggy.StudentController
-
+  alias Pluggy.GameController
 
 
   plug(Plug.Static, at: "/", from: :pluggy)
@@ -47,6 +47,7 @@ defmodule Pluggy.Router do
 
   get("/students", do: StudentController.index(conn))
 
+  get("/game", do: GameController.index(conn))
 
 
   match _ do
