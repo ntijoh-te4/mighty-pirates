@@ -74,6 +74,50 @@ header img{
 	margin-bottom: 1em;
 }
 
+.quiz_names{
+	position: relative;
+	margin-top: 10%;
+	left: 15%;
+}
+
+
+.quiz_names form{
+	position: relative;
+	margin-left: 35%;
+	top: -40vh;
+	padding-top: 15px;
+	cursor: pointer;
+	
+}
+.quiz_names form button{
+	font-size: 3vh;
+	background-color: rgb(89, 89, 233);
+	color:white;
+	border: none;
+	border-radius: 5px 5px 5px;
+	cursor: pointer;
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @media only screen and (max-width: 1500px) {
 	.outer{
 		width: 100%;

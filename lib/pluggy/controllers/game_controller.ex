@@ -8,7 +8,7 @@ defmodule Pluggy.GameController do
 
   def index(conn) do
     #srender använder slime
-    randomnumer = Enum.random(0..7)
+    randomnumer = Enum.random(1..8)
     send_resp(conn, 200, render("students/game", students: Game.get("#{randomnumer}") ))
   end
 
