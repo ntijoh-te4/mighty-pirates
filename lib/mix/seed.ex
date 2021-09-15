@@ -26,10 +26,6 @@ defmodule Mix.Tasks.Seed do
       img	TEXT,
       PRIMARY KEY(id)
     )", [], pool: DBConnection.ConnectionPool)
-
-
-
-
   end
 
   defp seed_data() do
