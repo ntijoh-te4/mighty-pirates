@@ -1,16 +1,11 @@
 <h1>StudentController.index (/students)</h1>
 
-
-
-
-
-
 <ul>
   <%= for student <- students do %>
     <li>
-            <%= student.img %>
-			<%= student.f_name %> - <%= student.l_name %>
-	</li>
+        <img src="/<%= student.img %>"/>
+			  <%= student.f_name %> <%= student.l_name %>
+	  </li>
   <% end %>
 </ul>
 
