@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Welcome to Pluggy</title>
-	<link rel="stylesheet" type="text/css" href="/pluggy.css">
-</head>
-<body>
-<header>
-<h1>WHAT'S THEIR FACE</h1>
-<img src="https://i.imgur.com/5sHrGt4.png">
-<div>
-<h2>John Doe</h2>
-</div>
-<a href="#logout">LOG OUT</a>
-</header>
-	<%= template %>
-</body>
+	<head>
+		<title>Welcome to Pluggy</title>
+		<link rel="stylesheet" type="text/css" href="/pluggy.css">
+	</head>
+	<body>
+		<header>
+			<h1>WHAT'S THEIR FACE</h1>
+			<img src="https://i.imgur.com/5sHrGt4.png">
+			<div>
+				<h2>John Doe</h2>
+			</div>
+			<a href="#logout">LOG OUT</a>
+		</header>
+		<%= template %>
+	</body>
 </html>
