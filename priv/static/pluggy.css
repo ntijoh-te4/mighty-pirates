@@ -1,6 +1,7 @@
 body {
 	background-color: white;
 }
+
 header{
 	height: 10%;
 	position: absolute;
@@ -9,12 +10,14 @@ header{
 	width: 100%;
 	background-color: rgb(89, 89, 233);
 }
+
 header h1{
-font-size: 4vh;
-color:white;
-position: absolute;
-left: 2%;
+	font-size: 4vh;
+	color:white;
+	position: absolute;
+	left: 2%;
 }
+
 header h2{
 	font-size: 3vh;
 	color:rgb(89, 89, 233);
@@ -22,6 +25,7 @@ header h2{
 	top: -10%;
 	left: 8%;
 }
+
 header div{
 	height: 65%;
 	position: absolute;
@@ -39,15 +43,39 @@ header a{
 	color:white;
 	text-decoration: none;
 }
+
 header img{
 	height: 32.5%;
 	position: absolute;
 	left: 69.8%;
 	top: 40%;
-	
 }
-ul{
-	position: relative;
-	margin-top: 10%;
-	font-size: 3vh;
+
+.outer{
+	margin-top: 7%;
+	display: flex;
+	flex-wrap: wrap;
+	width: 70%;
+	margin-left: auto;
+	margin-right: auto;
 }
+
+.inner {
+	text-align: center;
+	margin: 3em;
+	font-size: 20px;
+	background-color: rgb(176, 195, 231);
+	padding: 1em;
+}
+
+.inner img{
+	max-height: 400px;
+	display: block;
+	margin-bottom: 1em;
+}
+
+@media only screen and (max-width: 1500px) {
+	.outer{
+		width: 100%;
+	}
+  }

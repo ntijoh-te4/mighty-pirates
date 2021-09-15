@@ -1,13 +1,11 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
-
-
-<ul>
+<div class="outer">
   <%= for student <- students do %>
-    <li>
+    <div class="inner">
         <img src="/<%= student.img %>"/>
-			  <%= student.f_name %> <%= student.l_name %>
-	  </li>
+        <%= student.f_name %> <%= student.l_name %>
+	  </div>
   <% end %>
-</ul>
+</div>
 

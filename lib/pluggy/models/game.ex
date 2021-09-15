@@ -15,6 +15,7 @@ defmodule Pluggy.Game do
     |> to_struct
   end
 
+
   def to_struct([[id, f_name, l_name, img]]) do
     %Game{id: id, f_name: f_name, l_name: l_name, img: img}
   end
