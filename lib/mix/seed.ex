@@ -36,7 +36,7 @@ defmodule Mix.Tasks.Seed do
     IO.puts("Seeding data")
     Postgrex.query!(DB, "INSERT INTO students(f_name, l_name, img) VALUES($1, $2, $3)", ["Melwin","Bruun","fin"], pool: DBConnection.ConnectionPool)
     Postgrex.query!(DB, "INSERT INTO students(f_name, l_name, img) VALUES($1, $2, $3)", ["Axel","Östan","fil"], pool: DBConnection.ConnectionPool)
-    Postgrex.query!(DB, "INSERT INTO students(f_name, l_name, img) VALUES($1, $2, $3)", ["Evelina","kort","fi"], pool: DBConnection.ConnectionPool)
+    Postgrex.query!(DB, "INSERT INTO students(f_name, l_name, img) VALUES($1, $2, $3)", ["Evelina","Kul","finaste"], pool: DBConnection.ConnectionPool)
   end
 
 end
