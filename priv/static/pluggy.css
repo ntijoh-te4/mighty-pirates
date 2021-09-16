@@ -84,7 +84,7 @@ header img{
 .quiz_names form{
 	position: relative;
 	margin-left: 35%;
-	top: -40vh;
+	top: -60vh;
 	padding-top: 15px;
 	cursor: pointer;
 	
@@ -96,6 +96,12 @@ header img{
 	border: none;
 	border-radius: 5px 5px 5px;
 	cursor: pointer;
+	padding: 10px;
+	width: 30%;
+	
+}
+.quiz_names form .next{
+	margin-top: 5%;
 	
 }
 
