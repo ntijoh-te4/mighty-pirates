@@ -2,12 +2,34 @@
 
 <div class="quiz_names">
  <img style="height: 500px;  " src="/<%= correct_student.img %>"/>
- 
+
             <%= for student <- students do %>
+
                 <form method="post" name="guess_name" action="/game">
-                    <button name="guess_name" value="<%= student.f_name %> <%= student.l_name %>">
+                
+                    <%= if student do %>
+                       
+                        <button class="before_guess_button" name="guess_name" value="<%= student.f_name %> <%= student.l_name %>">
+                            <%= student.f_name %> <%= student.l_name %>
+                        </button>
+
+                    
+                    <% else %>
+                    <button class="after_guess_button"  name="guess_name" value="<%= student.f_name %> <%= student.l_name %>">
                         <%= student.f_name %> <%= student.l_name %>
                     </button>
+
+                     <button class="correct_button" name="guess_name" value="<%= student.f_name %> <%= student.l_name %>">
+                        <%= student.f_name %> <%= student.l_name %>
+                    </button>
+
+
+                     <button class="wrong_button" name="guess_name" value="<%= student.f_name %> <%= student.l_name %>">
+                        <%= student.f_name %> <%= student.l_name %>
+                    </button>
+                    
+                    
+                    <% end %>
                 </form>
             <% end %>
 

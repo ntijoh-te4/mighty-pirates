@@ -24,9 +24,9 @@ defmodule Pluggy.GameController do
   def run(conn) do
     correct_student = conn.private.plug_session["correct_student"]
     students = conn.private.plug_session["students"]
-    IO.puts("---------------------------")
-    IO.inspect(students)
-    IO.puts("---------------------------")
+    # IO.puts("---------------------------")
+    # IO.inspect(students)
+    # IO.puts("---------------------------")
 
     send_resp(conn, 200, render("students/game", correct_student: correct_student, students: students))
 
@@ -35,14 +35,22 @@ defmodule Pluggy.GameController do
   def validate_answer(conn, params) do
     guess_name = params["guess_name"]
     correct_student = conn.private.plug_session["correct_student"]
+    #IO.inspect(correct_student)
+    #IO.inspect(guess_name)
+    fullname = "#{correct_student.f_name} #{correct_student.l_name}"
+    #IO.inspect(fullname)
 
-    if correct_student == guess_name do
+    if fullname == guess_name do
       IO.puts "correct"
-
+      
+      redirect(conn, "/game/run")
     else
       IO.puts "Wrong"
-
+      redirect(conn, "/game/run")
     end
+
+
+
   end
   #Om knappen är lika med correct_student
     #plussa på acc

@@ -89,7 +89,7 @@ header img{
 	cursor: pointer;
 	
 }
-.quiz_names form button{
+.quiz_names form .before_guess_button{
 	font-size: 3vh;
 	background-color: rgb(89, 89, 233);
 	color:white;
@@ -100,9 +100,48 @@ header img{
 	width: 30%;
 	
 }
+.quiz_names form .after_guess_button{
+	font-size: 3vh;
+	background-color: rgb(227, 227, 227);
+	color:rgb(89, 89, 233);
+	border: none;
+	border-radius: 5px 5px 5px;
+	padding: 10px;
+	width: 30%;
+	
+}
+.quiz_names form .correct_button{
+	font-size: 3vh;
+	background-color: rgb(31, 230, 13);
+	color:white;
+	border: none;
+	border-radius: 5px 5px 5px;
+	padding: 10px;
+	width: 30%;
+	
+}
+.quiz_names form .wrong_button{
+	font-size: 3vh;
+	background-color: rgb(238, 11, 11);
+	color:white;
+	border: none;
+	border-radius: 5px 5px 5px;
+	
+	padding: 10px;
+	width: 30%;
+	
+}
+
 .quiz_names form .next{
 	margin-top: 5%;
-	
+	font-size: 3vh;
+	background-color: rgb(89, 89, 233);
+	color:white;
+	border: none;
+	border-radius: 5px 5px 5px;
+	cursor: pointer;
+	padding: 10px;
+	width: 30%;
 }
 
 
