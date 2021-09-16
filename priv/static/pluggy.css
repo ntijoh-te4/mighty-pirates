@@ -68,40 +68,39 @@ header img{
 	padding: 1em;
 }
 
-.inner img{
-	max-height: 400px;
-	display: block;
-	margin-bottom: 1em;
-}
+
 
 .quiz_names{
-	position: relative;
-	margin-top: 10%;
-	left: 15%;
+margin-left: 17.5%;
+margin-top: 7.5%;
 }
 
+.inner img{
+	max-height: 400px;
+	max-width: 200px;
+}
 
-.quiz_names form{
-	position: relative;
-	margin-left: 35%;
-	top: -60vh;
-	padding-top: 15px;
+.quiz_names .quiz_buttons{
+	display: block;
 	cursor: pointer;
+	margin-top: -20%;
 	
 }
-.quiz_names form button{
-	font-size: 3vh;
+.quiz_names .quiz_buttons button{
+	font-size: 3.5vh;
 	background-color: rgb(89, 89, 233);
 	color:white;
 	border: none;
-	border-radius: 5px 5px 5px;
+	border-radius: 8px 8px 8px 8px;
+	padding: 5px;
 	cursor: pointer;
-	padding: 10px;
-	width: 30%;
+	width: 20%;
+	margin-top: 1.25%;
+	margin-left: 37%;
 	
 }
 .quiz_names form .next{
-	margin-top: 5%;
+margin-top: 2.5%;
 	
 }
 
@@ -127,5 +126,24 @@ header img{
 @media only screen and (max-width: 1500px) {
 	.outer{
 		width: 100%;
+	}
+	
+  }
+  @media only screen and (max-width: 2500px) {
+
+	.quiz_names .quiz_buttons{
+		margin-top: -35%;
+	}
+  }
+  @media only screen and (max-width: 2000px) {
+
+	.quiz_names .quiz_buttons{
+		margin-top: -25%;
+	}
+  }
+  @media only screen and (max-width: 2250px) {
+
+	.quiz_names .quiz_buttons{
+		margin-top: -36%;
 	}
   }

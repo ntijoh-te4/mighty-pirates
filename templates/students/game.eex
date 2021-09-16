@@ -4,9 +4,11 @@ echo 'test pa php';
 ?>
 
 <div class="quiz_names">
+
  <img style="height: 500px;  " src="/<%= students.img %>"/>
- 
- <form method="get" action="#fel">
+
+ <div class="quiz_buttons"
+  <form method="get" action="#fel">
     <button type="submit">Lady Gaga</button>
 </form>
 
@@ -28,4 +30,6 @@ echo 'test pa php';
 <form method="get" action="/game">
     <button class="next" type="submit">Next</button>
 </form>
+</div>
+
 </div>
