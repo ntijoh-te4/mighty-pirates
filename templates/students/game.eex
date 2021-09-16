@@ -2,8 +2,7 @@
 
 <div class="quiz_names">
  <img style="height: 500px;  " src="/<%= correct_student.img %>"/>
-
-
+ 
             <%= for student <- students do %>
                 <form method="post" name="guess_name" action="/game">
                     <button name="guess_name" value="<%= student.f_name %> <%= student.l_name %>">
@@ -13,9 +12,9 @@
             <% end %>
 
         <form method="get" action="/game">
-            <button class="next" type="submit">Next</button>
+            <button class="next"  type="submit">Next</button>
         </form>
-
+</div>
 
 
 
