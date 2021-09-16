@@ -1,5 +1,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+      <form method="get" action="/game">
+            <button class="quiz_button" type="submit">To the quiz</button>
+        </form>
 <div class="outer">
   <%= for student <- students do %>
     <div class="inner">

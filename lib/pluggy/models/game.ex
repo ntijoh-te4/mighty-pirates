@@ -7,6 +7,10 @@ defmodule Pluggy.Game do
     Postgrex.query!(DB, "SELECT * FROM students", [], pool: DBConnection.ConnectionPool).rows
     |> to_struct_list
   end
+  def get_random do
+    Postgrex.query!(DB, "SELECT * FROM students ORDER BY RANDOM() LIMIT 5", [], pool: DBConnection.ConnectionPool).rows
+    |> to_struct_list
+  end
 
   def get(id) do
     Postgrex.query!(DB, "SELECT * FROM students WHERE id = $1 LIMIT 1", [String.to_integer(id)],

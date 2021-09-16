@@ -48,6 +48,9 @@ defmodule Pluggy.Router do
   get("/students", do: StudentController.index(conn))
 
   get("/game", do: GameController.index(conn))
+  get("/game/run", do: GameController.run(conn))
+
+  post("/game", do: GameController.validate_answer(conn, conn.body_params))
 
 
   match _ do

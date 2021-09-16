@@ -1,31 +1,23 @@
-<?php>
-
-echo 'test pa php';
-?>
 
 <div class="quiz_names">
- <img style="height: 500px;  " src="/<%= students.img %>"/>
- 
- <form method="get" action="#fel">
-    <button type="submit">Lady Gaga</button>
-</form>
+ <img style="height: 500px;  " src="/<%= correct_student.img %>"/>
 
-<form method="get" action="#fel">
-    <button type="submit">Kalie Jenner</button>
-</form>
 
-<form method="get" action="#ratt">
-    <button>
-	<%= students.f_name %> <%= students.l_name %>
-  </button>
-</form>
-  <form method="get" action="#fel">
-    <button type="submit">Kanye West</button>
-</form>
-<form method="get" action="#fel">
-    <button type="submit">Chris Evans</button>
-</form>
-<form method="get" action="/game">
-    <button class="next" type="submit">Next</button>
-</form>
+            <%= for student <- students do %>
+                <form method="post" name="guess_name" action="/game">
+                    <button name="guess_name" value="<%= student.f_name %> <%= student.l_name %>">
+                        <%= student.f_name %> <%= student.l_name %>
+                    </button>
+                </form>
+            <% end %>
+
+        <form method="get" action="/game">
+            <button class="next" type="submit">Next</button>
+        </form>
 </div>
+
+
+
+
+
+
