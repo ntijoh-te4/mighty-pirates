@@ -88,18 +88,14 @@ header img{
 
 .quiz_names form{
 	position: relative;
-	margin-left: 35%;
-	top: -70vh;
+	margin-left: 40%;
+	top: -60vh;
 	padding-top: 15px;
 	cursor: pointer;
 	
 }
 .quiz_names img{
 	position: relative;
-	
-	
-	
-	
 }
 .quiz_names form .before_guess_button{
 	font-size: 3vh;
@@ -194,21 +190,22 @@ form .quiz_button{
 }
 
 
-@media only screen and (max-width: 2500px) {
+@media only screen and (min-width: 1500px) {
 
-  .quiz_names .quiz_buttons{
-	  margin-top: -35%;
-  }
-}
-@media only screen and (max-width: 2000px) {
+	.quiz_names form{
+		
+		position: relative;
+	margin-left: 45%;
+	top: -37.5vh;
+	padding-top: 15px;
+	cursor: pointer;
+		
+		
+	}
+	.quiz_names img{
+		position: relative;
+		margin-left: 18%;
+		
+	}
 
-  .quiz_names .quiz_buttons{
-	  margin-top: -25%;
-  }
-}
-@media only screen and (max-width: 2250px) {
-
-  .quiz_names .quiz_buttons{
-	  margin-top: -36%;
-  }
 }
