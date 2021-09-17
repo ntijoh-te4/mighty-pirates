@@ -1,6 +1,11 @@
 
 <%= if guess_name == full_name do %>
-<h1 class="correct_text"> You guesst Correct </h1>
+
+    <%= if guess_name == nil do %>
+        <h1 class="correct_text"> </h1>
+    <% else %>
+        <h1 class="correct_text"> You guesst Correct </h1>
+    <% end %> 
  <% else %>
  <h1 class="wrong_text" > You guesst Wrong</h1>
     <p class="guess_text"> You guess was  <%=guess_name%>  </p>
