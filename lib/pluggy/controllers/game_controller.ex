@@ -14,7 +14,10 @@ defmodule Pluggy.GameController do
     # IO.puts("---------------------------")
     correct_student = Enum.random(students)
     Plug.Conn.put_session(conn, :students, students)
-    |> Plug.Conn.put_session(:correct_student, correct_student ) |> redirect("/game/run")
+    |> Plug.Conn.put_session(:correct_student, correct_student)
+    |> Plug.Conn.put_session(:fullname, nil)
+    |> Plug.Conn.put_session(:guess_name, nil)
+    |> redirect("/game/run")
     #TODO: Om correct_student finns i listan gör index(conn)
     #Annars, fortsätt
 
@@ -24,11 +27,14 @@ defmodule Pluggy.GameController do
   def run(conn) do
     correct_student = conn.private.plug_session["correct_student"]
     students = conn.private.plug_session["students"]
+    guess_name = conn.private.plug_session["guess_name"]
+    full_name = conn.private.plug_session["fullname"]
     # IO.puts("---------------------------")
     # IO.inspect(students)
     # IO.puts("---------------------------")
 
-    send_resp(conn, 200, render("students/game", correct_student: correct_student, students: students))
+    send_resp(conn, 200, render("students/game",
+    correct_student: correct_student, students: students, guess_name: guess_name, full_name: full_name))
 
   end
 
@@ -42,11 +48,14 @@ defmodule Pluggy.GameController do
 
     if fullname == guess_name do
       IO.puts "correct"
-      
-      redirect(conn, "/game/run")
+      Plug.Conn.put_session(conn, :fullname, fullname)
+      |> Plug.Conn.put_session(:guess_name, guess_name)
+      |> redirect( "/game/run")
     else
       IO.puts "Wrong"
-      redirect(conn, "/game/run")
+      Plug.Conn.put_session(conn, :fullname, fullname)
+      |> Plug.Conn.put_session(:guess_name, guess_name)
+      |> redirect( "/game/run")
     end
 
 
