@@ -13,20 +13,24 @@
                             <%= student.f_name %> <%= student.l_name %>
                         </button>
 
+                    <% else %> 
                     
-                    <% else %>
                     <button class="after_guess_button"  name="guess_name" value="<%= student.f_name %> <%= student.l_name %>">
                         <%= student.f_name %> <%= student.l_name %>
                     </button>
 
-                     <button class="correct_button" name="guess_name" value="<%= student.f_name %> <%= student.l_name %>">
-                        <%= student.f_name %> <%= student.l_name %>
+                    <button class="correct_button" name="guess_name" value="<%= student.f_name %> <%= student.l_name %>">
+                    <%= student.f_name %> <%= student.l_name %>
                     </button>
 
-
-                     <button class="wrong_button" name="guess_name" value="<%= student.f_name %> <%= student.l_name %>">
-                        <%= student.f_name %> <%= student.l_name %>
+                      
+                    <button class="wrong_button" name="guess_name" value="<%= student.f_name %> <%= student.l_name %>">
+                    <%= student.f_name %> <%= student.l_name %>
                     </button>
+                     
+
+
+                     
                     
                     
                     <% end %>
