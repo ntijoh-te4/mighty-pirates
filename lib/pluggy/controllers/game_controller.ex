@@ -9,15 +9,34 @@ defmodule Pluggy.GameController do
   def index(conn) do
     #srender använder slime
     students = Game.get_random()
+    all_students = Game.all()
+    all_student = length(all_students)
     # IO.puts("---------------------------")
     # IO.inspect(students)
     # IO.puts("---------------------------")
+    #IO.inspect(all_student)
     correct_student = Enum.random(students)
-    Plug.Conn.put_session(conn, :students, students)
+    counter = conn.private.plug_session["counter"]
+
+    if counter >= all_student do
+      Plug.Conn.put_session(conn, :students, nil)
+    |> Plug.Conn.put_session(:correct_student, nil)
+    |> Plug.Conn.put_session(:fullname, nil)
+    |> Plug.Conn.put_session(:counter, 0)
+    |> Plug.Conn.put_session(:guess_name, nil)
+    |> Plug.Conn.put_session(:all_student, nil)
+    |> redirect("/game/done")
+    else
+      Plug.Conn.put_session(conn, :students, students)
     |> Plug.Conn.put_session(:correct_student, correct_student)
     |> Plug.Conn.put_session(:fullname, nil)
+    |> Plug.Conn.put_session(:counter, counter)
+    |> Plug.Conn.put_session(:all_student, all_student)
     |> Plug.Conn.put_session(:guess_name, nil)
     |> redirect("/game/run")
+    end
+
+
     #TODO: Om correct_student finns i listan gör index(conn)
     #Annars, fortsätt
 
@@ -29,12 +48,14 @@ defmodule Pluggy.GameController do
     students = conn.private.plug_session["students"]
     guess_name = conn.private.plug_session["guess_name"]
     full_name = conn.private.plug_session["fullname"]
+    counter = conn.private.plug_session["counter"]
+    all_student = conn.private.plug_session["all_student"]
     # IO.puts("---------------------------")
     # IO.inspect(students)
     # IO.puts("---------------------------")
 
     send_resp(conn, 200, render("students/game",
-    correct_student: correct_student, students: students, guess_name: guess_name, full_name: full_name))
+    correct_student: correct_student, students: students, guess_name: guess_name, full_name: full_name, counter: counter , all_student: all_student))
 
   end
 
@@ -48,18 +69,29 @@ defmodule Pluggy.GameController do
 
     if fullname == guess_name do
       IO.puts "correct"
+      counter = conn.private.plug_session["counter"]
       Plug.Conn.put_session(conn, :fullname, fullname)
+      |> Plug.Conn.put_session(:counter, counter + 1)
       |> Plug.Conn.put_session(:guess_name, guess_name)
       |> redirect( "/game/run")
     else
       IO.puts "Wrong"
+      counter = conn.private.plug_session["counter"]
       Plug.Conn.put_session(conn, :fullname, fullname)
+      |> Plug.Conn.put_session(:counter, counter)
       |> Plug.Conn.put_session(:guess_name, guess_name)
       |> redirect( "/game/run")
     end
 
 
 
+
+
+  end
+
+
+  def done(conn) do
+    send_resp(conn, 200, render("students/done",[]))
   end
   #Om knappen är lika med correct_student
     #plussa på acc

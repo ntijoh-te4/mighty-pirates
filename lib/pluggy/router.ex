@@ -49,6 +49,7 @@ defmodule Pluggy.Router do
 
   get("/game", do: GameController.index(conn))
   get("/game/run", do: GameController.run(conn))
+  get("/game/done", do: GameController.done(conn))
 
   post("/game", do: GameController.validate_answer(conn, conn.body_params))
 

@@ -15,7 +15,7 @@
 
 <div class="quiz_names">
  <img style="height: 500px;  " src="/<%= correct_student.img %>"/>
-
+ <h1> You have guesst correctly <%= counter %> of <%= all_student %> </h1>
  
 
             <%= for student <- students do %>
@@ -57,6 +57,6 @@
             <% end %>
 
         <form method="get" action="/game">
-            <button class="next"  type="submit">Next</button>
+            <button class="next"  type="submit">Next > </button>
         </form>
 </div>

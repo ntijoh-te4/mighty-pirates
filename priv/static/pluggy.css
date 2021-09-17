@@ -188,6 +188,16 @@ form .quiz_button{
 	font-size: 3vh;
 	cursor: none;
 }
+form .next{
+	font-size: 3vh;
+	background-color: rgb(89, 89, 233);
+	color:white;
+	border: none;
+	border-radius: 5px 5px 5px;
+	cursor: pointer;
+	padding: 10px;
+	width: 30%;
+}
 
 
 @media only screen and (min-width: 1500px) {
