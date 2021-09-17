@@ -43,11 +43,6 @@
                         
                     
                     <% else %>
-                    
-                        <button class="after_guess_button"  name="guess_name" value="<%= student.f_name %> <%= student.l_name %>">
-                             <%= student.f_name %> <%= student.l_name %>
-                        </button>
-
                         <form method="get" action="/game">
                             <button class="next"  type="submit">Try again</button>
                         </form>
