@@ -7,6 +7,7 @@ defmodule Pluggy.Game do
     Postgrex.query!(DB, "SELECT * FROM students", [], pool: DBConnection.ConnectionPool).rows
     |> to_struct_list
   end
+
   def get_random do
     Postgrex.query!(DB, "SELECT * FROM students ORDER BY RANDOM() LIMIT 5", [], pool: DBConnection.ConnectionPool).rows
     |> to_struct_list
@@ -18,7 +19,6 @@ defmodule Pluggy.Game do
     ).rows
     |> to_struct
   end
-
 
   def to_struct([[id, f_name, l_name, img]]) do
     %Game{id: id, f_name: f_name, l_name: l_name, img: img}
