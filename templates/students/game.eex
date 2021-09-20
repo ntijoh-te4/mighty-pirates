@@ -1,46 +1,63 @@
-
-<%= if name_guessed == correct_student_name do %>
-    <%= if name_guessed == nil do %>
-        <h1 class="correct_text"> </h1>
-    <% else %>
-        <h1 class="correct_text"> Your guess was correct! </h1>
+<%# <div class="display_guess_result">
+    <%= if name_guessed == correct_student_name do %>
+        <%# <%= if name_guessed == nil do %>
+            <%# <h1 class="correct_text"> </h1> %>
+        <%# <% else %>
+            <%# <h1 class="correct_text"> Your guess was correct! </h1>
+        <% end %> 
+    <%# <% else %>
+    <%# <div class="display_guess_result">
+      <h1 class="wrong_text" >Wrong answer!</h1>
+      <p class="guess_text"> You guessed <%=name_guessed%>  </p>
+      <%# <p class="guess_text"> The correct name was <%= correct_student_name %> </p>
+    <%# </div>
     <% end %> 
-<% else %>
-  <h1 class="wrong_text" >Wrong answer!</h1>
-  <p class="guess_text"> You guessed <%=name_guessed%>  </p>
-  <p class="guess_text2"> The correct name was <%= correct_student_name %> </p>
-<% end %> 
+<%# </div> %> 
 
+<h3>TE4 (NTI Johanneberg)</h3>
 <div class="quiz_names">
- <img style="height: 500px;  " src="/<%= correct_student.img %>"/>
- <h1> Correct answers: <%= counter %> of <%= student_ammount %> </h1>
-    <%= for student <- students do %>
-        <form method="post" name="name_guessed" action="/game">
-            <%= if student do %>
-            <%student_name = student.f_name <> " " <> student.l_name %>
-                <%= if student_name != name_guessed do %>
-                    <button class="after_guess_button" name="name_guessed" value="<%= student_name %>">
-                      <%= student_name %>
-                    </button>
-                <% else %>
-                    <%= if name_guessed == correct_student_name do %>
-                        <button class="correct_button" name="name_guessed" value="<%= student_name %>" disabled>
-                            <%= student_name %>
-                        </button>
+    <div class="quiz_image">
+        <img style="height: 420px;  " src="/<%= correct_student.img %>"/>
+        <h1> <%= counter %> OF <%= student_ammount %> CORRECT</h1>
+    </div>
+    <div class="quiz_buttons">
+        <div class="alternative_buttons">
+            <%= for student <- students do %>
+                <form method="post" name="name_guessed" action="/game">
+                    <%= if student do %>
+                    <%student_name = student.f_name <> " " <> student.l_name %>
+                        <%= if student_name != name_guessed do %>
+                          <%= if name_guessed != correct_student_name and student_name == correct_student_name do %>
+                            <button class="correct_button" name="name_guessed" value="<%= student_name %>" disabled>
+                              <%= student_name %>
+                            </button>
+                          <% else %>
+                            <button class="after_guess_button" name="name_guessed" value="<%= student_name %>">
+                              <%= student_name %>
+                            </button>
+                          <% end %>
+                        <% else %>
+                          <%= cond do %>
+                             <%= name_guessed == correct_student_name ->%>
+                                <button class="correct_button" name="name_guessed" value="<%= student_name %>" disabled>
+                                      <%= student_name %>
+                                </button>
+                              <% name_guessed != correct_student_name -> %>
+                                <button class="wrong_button" name="name_guessed" value="<%= student_name %>" disabled>
+                                      <%= student_name %>
+                                </button>
+                          <% end %>
+                        <% end %>        
                     <% else %>
-                        <button class="wrong_button" name="name_guessed" value="<%= student_name %>" disabled>
-                            <%= student_name %>
-                        </button>
+                        <form method="get" action="/game">
+                            <button class="next" type="submit">Try again</button>
+                        </form>                   
                     <% end %>
-                <% end %>        
-            <% else %>
-                <form method="get" action="/game">
-                    <button class="next" type="submit">Try again</button>
-                </form>                   
+                </form>
             <% end %>
-        </form>
-    <% end %>
+        </div>
         <form method="get" action="/game">
             <button class="next" type="submit"> Next </button>
         </form>
+    </div>
 </div>

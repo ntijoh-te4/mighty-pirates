@@ -1,13 +1,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-      <form method="get" action="/game">
-            <button class="quiz_button" type="submit">To the quiz</button>
-        </form>
-<div class="outer">
+<div class="display_class_name"> 
+  <h1>TE4, NTI Johanneberg</h1> 
+  <div class="inner">
+  <form method="get" action="/game">
+        <button type="submit">To the quiz</button>
+  </form>
+  </div>
+</div>
+<div class="show_class">
   <%= for student <- students do %>
-    <div class="inner">
+    <div class="display_student">
         <img src="/<%= student.img %>"/>
-        <%= student.f_name %> <%= student.l_name %>
+        <h1> <%= student.f_name %> <%= student.l_name %> </h1>
 	  </div>
   <% end %>
 </div>

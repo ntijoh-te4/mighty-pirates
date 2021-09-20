@@ -7,17 +7,26 @@ body {
 	background-color: white;
 }
 
+h3{
+	width: fit-content;
+	margin-left: auto;
+	margin-right: auto;
+	color: rgb(76, 137, 251);
+	font-size: 40px;
+	padding: 30px;
+}
 /* Header  */
 header{
 	height: 50px;
 	width: 100%;
 	background-color: rgb(76, 137, 251);
 	display: flex;
-	padding: 30px;
+	padding-top: 20px;
 }
 
 .header_left{
-	width: 70%;
+	margin-left: 20px;
+	width: 80%;
 }
 
 header h1{
@@ -26,77 +35,65 @@ header h1{
 }
 
 .header_right{
-	width: 30%;
+	width: 20%;
+	height: fit-content;
 	display: flex;
+	text-align: center;
 }
 
 header h2{
-	height: 30px;
+	text-align: center;
+	height: fit-content;
 	width: 100px;
 	background-color:white;
-	padding: 5px;
-	font-size: 3vh;
+	font-size: 2vh;
+	padding: 7px;
 	color:rgb(76, 137, 251);
 }
+
 header a{
+	position: absolute;
 	height: 10%;
-	font-size: 2.5vh;
+	width: fit-content;
+	font-size: 2vh;
 	color:white;
 	text-decoration: none;
+	right: 20px;
+	padding: 7px;
 }
 
 header img{
 	width: 15px;
 	height: 15px;
+	padding: 7px;
 }
 
 /* Index */
-.outer{
-	margin-top: 7%;
+.display_class_name{
 	display: flex;
-	flex-wrap: wrap;
-	width: 70%;
+	width: 1300px;
 	margin-left: auto;
 	margin-right: auto;
+	padding: 40px;
+	border-bottom:solid;
+	border-bottom-width: thin;
+	border-color: rgb(209, 209, 209);
 }
 
-.inner {
-	text-align: center;
-	margin: 3em;
-	font-size: 20px;
-	background-color: rgb(176, 195, 231);
-	padding: 1em;
+.display_class_name h1{
+	margin-top: 20px;
+	margin-left: 60px;
+	color: rgb(176, 195, 231);
+	font-size: 3vw;
 }
 
-.inner img{
-	max-height: 400px;
-	display: block;
-	margin-bottom: 1em;
-	
+.inner{
+	margin-left: auto; 
+	margin-right: 60px;
 }
 
-/* Quiz */
-.quiz_names{
-	position: absolute;
-	top: 22.5%;
-	left: 15%;
-	height: 70%;
-	width: 80%;
-}
-
-.quiz_names img{
-	position: relative;
-}
-
-.quiz_names form{
-	position: relative;
-	margin-left: 40%;
-	top: -60vh;
-	padding-top: 15px;
-	cursor: pointer;
-}
-
-.quiz_names form .before_guess_button{
+.display_class_name button{
+	margin-top: 20px;
 	font-size: 3vh;
 	background-color: rgb(76, 137, 251);
 	color:white;
@@ -104,7 +101,90 @@ header img{
 	border-radius: 5px 5px 5px;
 	cursor: pointer;
 	padding: 10px;
-	width: 30%;
+	width: 200px;
+}
+
+.show_class{
+	display: flex;
+	flex-wrap: wrap;
+	width: 1300px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.display_student {
+	text-align: center;
+	margin: 2em;
+	font-size: 20px;
+	background-color: rgb(176, 195, 231);
+	padding: 1em;
+}
+
+.display_student img{
+	height: 350px;
+	width: 200px;
+	object-fit: scale-down;
+	display: block;
+}
+
+.display_student h1{
+	color: whitesmoke;
+	font-size: 15px;
+	font-weight: light;
+}
+
+/* Quiz */
+.quiz_names{
+	height: 70%;
+	width:max-content;
+	display: flex;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.quiz_names img{
+	position: relative;
+}
+
+.quiz_names form{
+	padding-top: 15px;
+	cursor: pointer;
+}
+
+.quiz_image h1{
+	margin-top: 15%;
+	margin-left: auto;
+	margin-right: auto;
+	width: fit-content;
+	font-size: 17px;
+	color: rgb(76, 137, 251);
+}
+
+.quiz_buttons{
+	display: block;
+	margin-left: 40px;
+}
+
+.alternative_buttons{
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+	height: 420px;
+}
+
+.alternative_buttons form{
+	padding-top: 0;
+}
+.quiz_names form .before_guess_button{
+	font-size: 3vh;
+	background-color: rgb(76, 137, 251);
+	color:white;
+	border: none;
+	border-radius: 5px 5px 5px;
+	cursor: pointer;
+	padding: 15px;
+	width: 250px;
+	text-align: left;
 }
 
 .quiz_names form .after_guess_button{
@@ -113,8 +193,9 @@ header img{
 	color:rgb(76, 137, 251);
 	border: solid;
 	border-radius: 5px 5px 5px;
-	padding: 10px;
-	width: 30%;
+	padding: 15px;
+	width: 250px;
+	text-align: left;
 }
 
 .quiz_names form .correct_button{
@@ -123,8 +204,9 @@ header img{
 	color:white;
 	border: none;
 	border-radius: 5px 5px 5px;
-	padding: 10px;
-	width: 30%;
+	padding: 15px;
+	width: 250px;
+	text-align: left;
 }
 
 .quiz_names form .wrong_button{
@@ -133,12 +215,15 @@ header img{
 	color:white;
 	border: none;
 	border-radius: 5px 5px 5px;
-	padding: 10px;
-	width: 30%;
+	padding: 15px;
+	width: 250px;
+	text-align: left;
 }
 
 .quiz_names form .next{
-	margin-top: 5%;
+	margin-top: 10%;
+	margin-left: auto;
+	margin-right: auto;
 	font-size: 3vh;
 	background-color: rgb(76, 137, 251);
 	color:white;
@@ -146,61 +231,35 @@ header img{
 	border-radius: 5px 5px 5px;
 	cursor: pointer;
 	padding: 10px;
-	width: 30%;
+	width: 250px;
 }
 
-/* Är denna nödvändig? */
-form .quiz_button{
-	margin-top: 10%;
-	margin-left: 20%;
-	font-size: 3vh;
-	background-color: rgb(76, 137, 251);
-	color:white;
-	border: none;
-	border-radius: 5px 5px 5px;
-	cursor: pointer;
-	padding: 10px;
-	width: 30%;
+.display_guess_result{
+	width: fit-content;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .correct_text{
-	position: absolute;
-	top: 30%;
-	left: 70%;
 	color: rgb(111, 200, 102);
 	font-size: 5vh;
 	cursor: none;
 }
 
 .wrong_text{
-	position: absolute;
-	top: 30%;
-	left: 70%;
 	color: rgb(207, 73, 73);
 	font-size: 5vh;
 	cursor: none;
 }
 
 .guess_text{
-	position: absolute;
-	top: 37.5%;
-	left: 70.5%;
-	color: rgb(207, 73, 73);
-	font-size: 3vh;
-	cursor: none;
-}
-
-.guess_text2{
-	position: absolute;
-	top: 42.5%;
-	left: 70.5%;
 	color: rgb(207, 73, 73);
 	font-size: 3vh;
 	cursor: none;
 }
 
 /* Är denna nödvändig? */
-form .next{
+.done_button button{
 	font-size: 3vh;
 	background-color: rgb(76, 137, 251);
 	color:white;
@@ -208,9 +267,21 @@ form .next{
 	border-radius: 5px 5px 5px;
 	cursor: pointer;
 	padding: 10px;
-	width: 30%;
+	width: 250px;
 }
 
+.game_done{
+	width: fit-content;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.done_button{
+	width: max-content;
+	margin-top: 20px;
+	margin-left: auto;
+	margin-right: 0;
+}
 
 @media only screen and (min-width: 1500px) {
 
