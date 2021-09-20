@@ -14,15 +14,27 @@ defmodule Pluggy.GameController do
     # IO.puts("---------------------------")
     # IO.inspect(students)
     # IO.puts("---------------------------")
-    #IO.inspect(student_ammount)
+    # IO.inspect(student_ammount)
     correct_student = Enum.random(students)
+    correct_student_id = to_string(correct_student.id)
     counter = conn.private.plug_session["counter"]
+    correct_guesses = conn.private.plug_session["correct_guesses"]
+    if String.contains?(correct_guesses, correct_student_id) do
+      IO.puts("same person getting new person")
+      index(conn)
+    end
+
+    # IO.puts("---------------------------")
+    # IO.inspect(correct_student_id)
+    # IO.inspect(correct_guesses)
+    # IO.puts("---------------------------")
 
     if counter >= student_ammount do
       Plug.Conn.put_session(conn, :students, nil)
       |> Plug.Conn.put_session(:correct_student, nil)
       |> Plug.Conn.put_session(:correct_student_name, nil)
       |> Plug.Conn.put_session(:counter, 0)
+      |> Plug.Conn.put_session(:correct_guesses, "")
       |> Plug.Conn.put_session(:name_guessed, nil)
       |> Plug.Conn.put_session(:student_ammount, nil)
       |> redirect("/game/done")
@@ -31,9 +43,10 @@ defmodule Pluggy.GameController do
       |> Plug.Conn.put_session(:correct_student, correct_student)
       |> Plug.Conn.put_session(:correct_student_name, nil)
       |> Plug.Conn.put_session(:counter, counter)
+      |> Plug.Conn.put_session(:correct_guesses, correct_guesses)
       |> Plug.Conn.put_session(:student_ammount, student_ammount)
       |> Plug.Conn.put_session(:name_guessed, nil)
-      |> redirect("/game/run")
+      |> redirect("/game/show_alternatives")
     end
 
     #TODO: Om correct_student finns i listan gör index(conn)
@@ -41,6 +54,20 @@ defmodule Pluggy.GameController do
 
   end
 
+  def show_alternatives(conn) do
+    correct_student = conn.private.plug_session["correct_student"]
+    students = conn.private.plug_session["students"]
+    name_guessed = conn.private.plug_session["name_guessed"]
+    correct_student_name = conn.private.plug_session["correct_student_name"]
+    counter = conn.private.plug_session["counter"]
+    student_ammount = conn.private.plug_session["student_ammount"]
+    # IO.puts("---------------------------")
+    # IO.inspect(students)
+    # IO.puts("---------------------------")
+
+    send_resp(conn, 200, render("students/default_game",
+    correct_student: correct_student, students: students, name_guessed: name_guessed, correct_student_name: correct_student_name, counter: counter , student_ammount: student_ammount))
+  end
   def run(conn) do
     correct_student = conn.private.plug_session["correct_student"]
     students = conn.private.plug_session["students"]
@@ -62,13 +89,16 @@ defmodule Pluggy.GameController do
     #IO.inspect(correct_student)
     #IO.inspect(name_guessed)
     correct_student_name = "#{correct_student.f_name} #{correct_student.l_name}"
+    correct_student_id = "#{correct_student.id}"
     #IO.inspect(correct_student_name)
 
     if correct_student_name == name_guessed do
       IO.puts "correct"
       counter = conn.private.plug_session["counter"]
+      correct_guesses = conn.private.plug_session["correct_guesses"]
       Plug.Conn.put_session(conn, :correct_student_name, correct_student_name)
       |> Plug.Conn.put_session(:counter, counter + 1)
+      |> Plug.Conn.put_session(:correct_guesses, "#{correct_guesses},#{correct_student_id}")
       |> Plug.Conn.put_session(:name_guessed, name_guessed)
       |> redirect( "/game/run")
     else
