@@ -14,6 +14,7 @@ defmodule Mix.Tasks.Seed do
     Postgrex.query!(DB, "DROP TABLE IF EXISTS students", [], pool: DBConnection.ConnectionPool)
     Postgrex.query!(DB, "DROP TABLE IF EXISTS fruits", [], pool: DBConnection.ConnectionPool)
     Postgrex.query!(DB, "DROP TABLE IF EXISTS users", [], pool: DBConnection.ConnectionPool)
+    Postgrex.query!(DB, "DROP TABLE IF EXISTS site_users", [], pool: DBConnection.ConnectionPool)
   end
 
   defp create_tables() do
@@ -27,6 +28,17 @@ defmodule Mix.Tasks.Seed do
       img	TEXT,
       PRIMARY KEY(id)
     )", [], pool: DBConnection.ConnectionPool)
+
+    Postgrex.query!(DB, "Create TABLE site_users (
+      id SERIAL NOT NULL UNIQUE ,
+      username	TEXT NOT NULL,
+      password	TEXT NOT NULL,
+      admin	INTEGER,
+      PRIMARY KEY(id)
+    )", [], pool: DBConnection.ConnectionPool)
+
+
+
   end
 
   defp seed_data() do
@@ -45,6 +57,10 @@ defmodule Mix.Tasks.Seed do
     Postgrex.query!(DB, "INSERT INTO students(f_name, l_name, img) VALUES($1, $2, $3)", ["Johnny","Depp","johnny.jpg"], pool: DBConnection.ConnectionPool)
     Postgrex.query!(DB, "INSERT INTO students(f_name, l_name, img) VALUES($1, $2, $3)", ["Hakan","Hellstrom","hakan.jpeg"], pool: DBConnection.ConnectionPool)
     Postgrex.query!(DB, "INSERT INTO students(f_name, l_name, img) VALUES($1, $2, $3)", ["Henry","Cavill","superman.jpeg"], pool: DBConnection.ConnectionPool)
+
+    Postgrex.query!(DB, "INSERT INTO site_users(username, password, admin) VALUES($1, $2, $3)", ["user","user",0], pool: DBConnection.ConnectionPool)
+    Postgrex.query!(DB, "INSERT INTO site_users(username, password, admin) VALUES($1, $2, $3)", ["admin","admin",1], pool: DBConnection.ConnectionPool)
+
   end
 
 end

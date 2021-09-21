@@ -34,6 +34,7 @@ defmodule Pluggy.GameController do
        |> Plug.Conn.put_session(:correct_student, correct_student)
        |> Plug.Conn.put_session(:correct_student_name, nil)
        |> Plug.Conn.put_session(:counter, counter)
+       |> Plug.Conn.put_session(:user, "user")
        |> Plug.Conn.put_session(:correct_guesses, correct_guesses)
        |> Plug.Conn.put_session(:student_ammount, student_ammount)
        |> Plug.Conn.put_session(:name_guessed, nil)
@@ -48,12 +49,17 @@ defmodule Pluggy.GameController do
     correct_student_name = conn.private.plug_session["correct_student_name"]
     counter = conn.private.plug_session["counter"]
     student_ammount = conn.private.plug_session["student_ammount"]
+    username = conn.private.plug_session["user"]
     # IO.puts("---------------------------")
     # IO.inspect(students)
     # IO.puts("---------------------------")
 
     send_resp(conn, 200, render("students/default_game",
-    correct_student: correct_student, students: students, name_guessed: name_guessed, correct_student_name: correct_student_name, counter: counter , student_ammount: student_ammount))
+    correct_student: correct_student, students: students, name_guessed:
+    name_guessed, correct_student_name: correct_student_name, counter: counter ,
+    student_ammount: student_ammount,
+    username: username
+    ))
   end
 
   def run(conn) do
@@ -63,12 +69,16 @@ defmodule Pluggy.GameController do
     correct_student_name = conn.private.plug_session["correct_student_name"]
     counter = conn.private.plug_session["counter"]
     student_ammount = conn.private.plug_session["student_ammount"]
+    username = conn.private.plug_session["user"]
     # IO.puts("---------------------------")
     # IO.inspect(students)
     # IO.puts("---------------------------")
 
     send_resp(conn, 200, render("students/game",
-    correct_student: correct_student, students: students, name_guessed: name_guessed, correct_student_name: correct_student_name, counter: counter , student_ammount: student_ammount))
+    correct_student: correct_student, students: students, name_guessed:
+    name_guessed, correct_student_name: correct_student_name, counter: counter ,
+    student_ammount: student_ammount,
+    username: username))
   end
 
   def validate_answer(conn, params) do

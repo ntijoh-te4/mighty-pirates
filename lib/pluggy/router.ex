@@ -7,6 +7,7 @@ defmodule Pluggy.Router do
   alias Pluggy.UserController
   alias Pluggy.StudentController
   alias Pluggy.GameController
+  alias Pluggy.SiteUserController
 
 
   plug(Plug.Static, at: "/", from: :pluggy)
@@ -45,6 +46,10 @@ defmodule Pluggy.Router do
 
 
 
+  get("/", do: SiteUserController.setup(conn))
+  get("/start", do: SiteUserController.index(conn))
+  get("/ad", do: SiteUserController.setup_admin(conn))
+  get("/admin", do: SiteUserController.admin(conn))
   get("/students", do: StudentController.index(conn))
 
   get("/game", do: GameController.index(conn))

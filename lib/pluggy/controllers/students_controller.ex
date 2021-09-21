@@ -9,6 +9,7 @@ defmodule Pluggy.StudentController do
   def index(conn) do
     # get user if logged in
     session_user = conn.private.plug_session["user_id"]
+    username = "user"
 
     current_user =
       case session_user do
@@ -17,7 +18,7 @@ defmodule Pluggy.StudentController do
       end
 
     #srender använder slime
-    send_resp(conn, 200, render("students/index", students: Students.all()))
+    send_resp(conn, 200, render("students/index", students: Students.all(), username: username ))
   end
 
 end
