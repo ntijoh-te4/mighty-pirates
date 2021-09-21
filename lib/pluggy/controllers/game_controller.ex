@@ -107,7 +107,8 @@ defmodule Pluggy.GameController do
   end
 
   def done(conn) do
-    send_resp(conn, 200, render("students/done",[]))
+    username = conn.private.plug_session["user"]
+    send_resp(conn, 200, render("students/done",username: username))
   end
 
   defp redirect(conn, url), do: Plug.Conn.put_resp_header(conn, "location", url) |> send_resp(303, "")
