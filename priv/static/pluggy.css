@@ -70,6 +70,62 @@ header img{
 	height: 15px;
 	padding: 7px;
 }
+/* Login */
+
+.login{
+	width: fit-content;
+	height: fit-content;
+	margin: auto;
+	margin-top: 10%;
+	text-align: center;
+}
+
+.login h1{
+	width: fit-content;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 3%;
+	color: rgb(76, 137, 251);
+	font-size: 40px;
+	font-weight: lighter;
+	padding: 30px;
+}
+
+.login form label{
+	display: block;
+	font-size: 20px;
+	color: rgb(76, 137, 251);
+	text-align: left;
+	margin-bottom: 2px;
+}
+
+.login form input{
+	display: block;
+	margin: auto;
+	width: 350px;
+	height: 30px;
+	margin-bottom: 20px;
+	border-radius: 5px;
+	border-color: rgb(76, 137, 251);
+	border-style: solid;
+	border-width: thin;
+	background-color: rgba(76, 137, 251, 0.219);
+}
+
+.login div form button{
+	margin: auto;
+	margin-top: 1rem;
+	background-color: rgb(76, 137, 251);
+	color: white;
+	font-size: 20px;
+	width: 100px;
+	height: fit-content;
+	padding: 5px;
+	border: none;
+	border-radius: 2px;
+}
+
+
 
 /* Index */
 .display_class_name{

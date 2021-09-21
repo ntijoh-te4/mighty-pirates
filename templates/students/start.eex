@@ -1,25 +1,27 @@
+<head>
+    <title>Welcome to Pluggy</title>
+    <link rel="stylesheet" type="text/css" href="/pluggy.css">
+</head>
 
-<h1>start.eex</h1>
-
-<form action="/users/login" method="post">
-	<label for="username">Username</label>
-	<input type="text" name="username" id="username" />
-	<label for="password">Password</lagel>
-	<input type="password" name="pwd" id="password" />
-</form>
-
-<%= if admin == 1 do %>
-    </div>
-        <form method="get" action="/ad">
-            <button class="next" type="submit"> Log in</button>
-        </form>
-    </div>
-
-<%else%>
-    </div>
-        <form method="get" action="/students">
-            <button class="next" type="submit"> Log in</button>
-        </form>
-    </div>
-
-<%end%>
+<div class="login">
+    <h1>What's Their Face</h1>
+    <form action="/users/login" method="post">
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username" />
+        <label for="password">Password</label>
+        <input type="password" name="pwd" id="password" />
+    </form>
+    <%= if admin == 1 do %>
+        <div>
+            <form method="get" action="/ad">
+                <button class="next" type="submit"> Log in</button>
+            </form>
+        </div>
+    <%else%>
+        <div>
+            <form method="get" action="/students">
+                <button class="next" type="submit"> Log in</button>
+            </form>
+        </div>
+    <%end%>
+</div>
