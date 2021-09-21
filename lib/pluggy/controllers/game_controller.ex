@@ -28,6 +28,7 @@ defmodule Pluggy.GameController do
     correct_student = List.first(correct_student)
     students = Game.get_random_students(correct_student.id)
     students = [correct_student | students]
+    students = Enum.shuffle(students)
 
     Plug.Conn.put_session(conn, :students, students)
        |> Plug.Conn.put_session(:correct_student, correct_student)
