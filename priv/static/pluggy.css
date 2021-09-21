@@ -11,6 +11,7 @@ h3{
 	width: fit-content;
 	margin-left: auto;
 	margin-right: auto;
+	margin-top: 3%;
 	color: rgb(76, 137, 251);
 	font-size: 40px;
 	padding: 30px;
@@ -30,12 +31,14 @@ header{
 }
 
 header h1{
-	font-size: 4vh;
+	font-size: 30px;
 	color:white;
 }
 
 .header_right{
-	width: 20%;
+	position: absolute;
+	right: 0;
+	width: 300px;
 	height: fit-content;
 	display: flex;
 	text-align: center;
@@ -46,7 +49,7 @@ header h2{
 	height: fit-content;
 	width: 100px;
 	background-color:white;
-	font-size: 2vh;
+	font-size: 20px;
 	padding: 7px;
 	color:rgb(76, 137, 251);
 }
@@ -55,7 +58,7 @@ header a{
 	position: absolute;
 	height: 10%;
 	width: fit-content;
-	font-size: 2vh;
+	font-size: 20px;
 	color:white;
 	text-decoration: none;
 	right: 20px;
@@ -94,7 +97,7 @@ header img{
 
 .display_class_name button{
 	margin-top: 20px;
-	font-size: 3vh;
+	font-size: 25px;
 	background-color: rgb(76, 137, 251);
 	color:white;
 	border: none;
@@ -175,8 +178,9 @@ header img{
 .alternative_buttons form{
 	padding-top: 0;
 }
+
 .quiz_names form .before_guess_button{
-	font-size: 3vh;
+	font-size: 25px;
 	background-color: rgb(76, 137, 251);
 	color:white;
 	border: none;
@@ -188,7 +192,7 @@ header img{
 }
 
 .quiz_names form .after_guess_button{
-	font-size: 3vh;
+	font-size: 25px;
 	background-color: rgb(241, 241, 241);
 	color:rgb(76, 137, 251);
 	border: solid;
@@ -199,7 +203,7 @@ header img{
 }
 
 .quiz_names form .correct_button{
-	font-size: 3vh;
+	font-size: 25px;
 	background-color: rgb(111, 200, 102);
 	color:white;
 	border: none;
@@ -210,7 +214,7 @@ header img{
 }
 
 .quiz_names form .wrong_button{
-	font-size: 3vh;
+	font-size: 25px;
 	background-color: rgb(207, 73, 73);
 	color:white;
 	border: none;
@@ -224,7 +228,7 @@ header img{
 	margin-top: 10%;
 	margin-left: auto;
 	margin-right: auto;
-	font-size: 3vh;
+	font-size: 25px;
 	background-color: rgb(76, 137, 251);
 	color:white;
 	border: none;
@@ -258,9 +262,8 @@ header img{
 	cursor: none;
 }
 
-/* Är denna nödvändig? */
 .done_button button{
-	font-size: 3vh;
+	font-size: 25px;
 	background-color: rgb(76, 137, 251);
 	color:white;
 	border: none;
@@ -285,17 +288,11 @@ header img{
 
 @media only screen and (min-width: 1500px) {
 
-	.quiz_names form{
-		position: relative;
-		margin-left: 45%;
-		top: -37.5vh;
-		padding-top: 15px;
-		cursor: pointer;
+	header{
+		margin-bottom: 2%;
 	}
-
-	.quiz_names img{
-		position: relative;
-		margin-left: 18%;
+	h3{
+		margin-top: 8%;
 	}
 
 }
